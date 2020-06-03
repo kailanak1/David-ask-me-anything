@@ -1,6 +1,6 @@
 class Api::V1::QuestionsController < ApplicationController
 
-    before_action :authorized, only: [:index, :create, :show]
+    skip_before_action :authorized, only: [:index, :create, :show]
 
     def index 
         @questions = Question.all 
@@ -31,6 +31,6 @@ class Api::V1::QuestionsController < ApplicationController
 
     private 
     def question_params
-        params.require(:question).permit(:title, :context, :coin)
+        params.require(:question).permit(:title, :context, :coin, :points)
     end
 end
