@@ -3,7 +3,7 @@ class Api::V1::AuthController < ApplicationController
 
     def create
       @user = User.find_by(username: user_login_params[:username])
-      #User authenticate comes from BCrypt
+      #User authenticate comes from bcrypt
       if @user && @user.authenticate(user_login_params[:password])
         # encode token comes from ApplicationController
         token = encode_token(@user)
@@ -24,6 +24,6 @@ class Api::V1::AuthController < ApplicationController
 
     private
     def user_login_params
-      params.require(:auth).permit(:username, :password)
+      params.require(:auth).permit(:username, :password, :is_admin)
     end
 end
