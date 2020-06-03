@@ -1,11 +1,13 @@
 class Api::V1::AnswersController < ApplicationController
+    skip_before_action :authorized, only: [:index, :show]
+
     def index 
         @answers = Answer.where(question_id: params[:question_id])
         render json: @answers
     end
 
     def create 
-        @question = Question.find_by(id: params:[:question_id])
+        @question = Question.find_by(id: params[:question_id])
         @answer = @question.answers.create(answer_params)
         render json: @answer
     end
@@ -22,6 +24,6 @@ class Api::V1::AnswersController < ApplicationController
 
     private 
     def answer_params
-        params.require(:answer).permit(:content)
+        params.require(:answer).permit(:content, :question_id)
     end
 end
