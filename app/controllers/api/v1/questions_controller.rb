@@ -20,6 +20,16 @@ class Api::V1::QuestionsController < ApplicationController
         @question = Question.find_by(id: params[:id])
     end
 
+    def update 
+        @question = Question.find_by(id: params[:id])
+        if @question
+            @question.update(question_params)
+            render json: @question 
+        else 
+            render json: {errors: {message: "Failed to update question."}}
+        end
+    end
+
     def destroy 
         @question = Question.find(params[:id])
         if @question.destroy 
