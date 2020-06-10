@@ -9,7 +9,6 @@ class Api::V1::UsersController < ApplicationController
     def create
       @user = User.new(user_params)
       if @user.valid?
-          #use encode_token method to do JWT.encode (AppController)
           @user.save
           @token = encode_token(@user)
           render json: { user: @user, jwt: @token }

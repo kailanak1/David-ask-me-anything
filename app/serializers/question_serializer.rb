@@ -1,3 +1,3 @@
 class QuestionSerializer < ActiveModel::Serializer
-  attributes :id, :title, :context, :coin, :answers, :points
+  attributes :id, :title, :context, :coin, :points, :answers
 end
