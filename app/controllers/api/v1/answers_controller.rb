@@ -11,7 +11,7 @@ class Api::V1::AnswersController < ApplicationController
         render json: @answer
     end
 
-    def delete 
+    def destroy 
         @answer = Answer.find(params[:id])
         if @answer 
             @answer.destroy 

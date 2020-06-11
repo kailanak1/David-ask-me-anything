@@ -34,7 +34,7 @@ class Api::V1::QuestionsController < ApplicationController
     def destroy 
         @question = Question.find(params[:id])
         if @question.destroy 
-            render status: 204 
+            render json: {message: "Question deleted"}
         else 
             render json: {message: "Failed to delete question."}
         end
