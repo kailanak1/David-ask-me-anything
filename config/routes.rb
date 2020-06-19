@@ -10,6 +10,9 @@ Rails.application.routes.draw do
       get '/profile', to: 'users#profile'
       get '/current_user', to: 'auth#show'
       post '/sign_up', to: 'users#create'
+      get '*path', to: "application#fallback_index_html", constraints: ->(request) do
+        !request.xhr? && request.format.html?
+      end
     end
   end
 end

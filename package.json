@@ -1,0 +1,22 @@
+
+{
+  "name": "david-personal-website",
+  "version": "1.0.0",
+  "description": "\"A personal website. Ask me anything!\"",
+  "main": "index.js",
+  "repository": "https://github.com/kailanak1/David-ask-me-anything.git",
+  "author": "kailana <kailanakahawaii@gmail.com>",
+  "license": "MIT",
+  "private": false, 
+  "scripts": {
+    "build": "cd client && yarn install && yarn build && cd ..",
+    "deploy": "cp -a client/build/. public/",
+    "postinstall": "yarn build && yarn deploy && echo 'Client built!'"
+  },
+  "engines": {
+    "yarn": "1.22.4",
+    "npm": "6.13.7"
+  }
+}
+
+
