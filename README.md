@@ -13,7 +13,7 @@ Under Construction
 ## Installing Locally 
 In order to fully use this project, you will need the [frontend](https://github.com/kailanak1/David-Ask-Me-Anything-FE).
 
-Clone the project on your local machine by forking and cloning this respository. Copy the SSH link open your terminal, and type:  
+Clone the project on your local machine by forking and cloning this respository. Copy the SSH link, open your terminal, and type:  
 ```$ git clone <SSH link>```
 
 After cloning the repository, cd into the folder.  
@@ -29,10 +29,10 @@ While in the root directory, run rails db:create and rails db:migrate to create 
 This project was made without seeding. Run rails s to start the server and navigate to your localhost port to see that Rails is running.  
 ```rails s```
 
-# Author 
+## Author 
 Kailana Kahawaii
 
-# Acknowledgements 
+## Acknowledgements 
 Kim Kong helped me brainstorm and troubleshoot this project. Check out her [github](https://github.com/nk2303)!
 
 
