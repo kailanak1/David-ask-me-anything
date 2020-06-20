@@ -3,11 +3,14 @@ class Api::V1::AuthController < ApplicationController
 
     def create
         user = User.find_by(username: user_login_params[:username])
+        puts "THIS IS WHERE WE'RE LOOKING"
         puts user
         if user && user.authenticate(user_login_params[:password])
             token = issue_token(user)
+            puts "THIS IS WHERE USER GET TOKEN"
+            puts token
           render json: {user: UserSerializer.new(user), jwt: token}
-          puts token
+
         else
           render json: {error: 'That user could not be found'}, status: 401
         end
