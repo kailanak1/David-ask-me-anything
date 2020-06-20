@@ -3,9 +3,11 @@ class Api::V1::AuthController < ApplicationController
 
     def create
         user = User.find_by(username: user_login_params[:username])
+        puts user
         if user && user.authenticate(user_login_params[:password])
             token = issue_token(user)
           render json: {user: UserSerializer.new(user), jwt: token}
+          puts token
         else
           render json: {error: 'That user could not be found'}, status: 401
         end
@@ -22,6 +24,6 @@ class Api::V1::AuthController < ApplicationController
 
     private
     def user_login_params
-      params.require(:user).permit(:username, :password, :is_admin)
+      params.require(:user).permit(:username, :password)
     end
 end

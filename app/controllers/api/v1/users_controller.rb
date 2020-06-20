@@ -22,6 +22,14 @@ class Api::V1::UsersController < ApplicationController
         render json: @user
     end
 
+    def update 
+        @user = User.find(params[:id])
+        if @user
+            User.update(user_params)
+        end
+        render json: @user
+    end
+
     private
       def user_params
         params.require(:user).permit(:username, :password, :is_admin)
