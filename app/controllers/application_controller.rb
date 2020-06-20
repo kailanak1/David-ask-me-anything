@@ -7,7 +7,6 @@ class ApplicationController < ActionController::API
     end
 
     def issue_token(user)
-        puts jwt_key
         JWT.encode({user_id: user.id}, jwt_key, 'HS256')
     end
 

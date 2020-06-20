@@ -2,6 +2,8 @@
 
 This is a personal website for David. 
 
+[See the live site here](https://david-quora-frontend.firebaseapp.com/).
+
 ## Technologies Used 
 * Ruby version ruby-2.6.6 
 * Active Record
@@ -28,6 +30,28 @@ While in the root directory, run rails db:create and rails db:migrate to create 
 
 This project was made without seeding. Run rails s to start the server and navigate to your localhost port to see that Rails is running.  
 ```rails s```
+
+## Getting Started
+Create a user in your [backend](https://github.com/kailanak1/David-ask-me-any). You can do this in two ways: 
+
+**Option 1:**
+Open the backend. From the terminal, navigate to the root directory. Type rails c to open your the Rails console. 
+```$ rails c```
+
+In the Rails console, create a new user with username, password, and is_admin attributes. 
+```$ User.create(username: "Jean-Luc", password: "Picard", is_admin: true)```
+
+Exit the console.
+```$ exit``` 
+
+**Option 2:** 
+In the backend, navigate to db/seeds.rb. Create a user in the seed file underneath User.destroy_all. 
+```User.create(username: "James", password: "Kirk", is_admin: true)```
+
+In your terminal, run rails db:seed. 
+```$ rails db:seed```
+
+After completing either option 1 or option 2, start your rails server again ```rails s``` and go to the localhost port hosting your front end. Go to Login from the navigation bar and enter your credentials. 
 
 ## Author 
 Kailana Kahawaii
